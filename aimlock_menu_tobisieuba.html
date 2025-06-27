@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>AimLock Menu</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('');
+    }
+    #keyInputSection, #controlPanel {
+      background: #1a0000;
+      border-radius: 15px;
+      box-shadow: 0 0 30px red;
+      padding: 20px;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 200px;
+    }
+    button {
+      background-color: #eee;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .slider {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="keyInputSection">
+  <h2>🔐 Nhập Key</h2>
+  <input type="text" id="keyInput" placeholder="Nhập key..."><br><br>
+  <button onclick="unlock()">Xác nhận</button>
+</div>
+
+<div id="controlPanel" style="display:none;">
+  <h2>🎮 AimLock Menu</h2>
+  <div class="toggle"><span>SHOTBOT</span><input type="checkbox"></div>
+  <div class="toggle"><span>AIMLOCK</span><input type="checkbox"></div>
+  <div class="toggle"><span>NORECOIL</span><input type="checkbox"></div>
+  <div class="toggle"><span>AIMDRAG</span><input type="checkbox"></div>
+  <div class="toggle"><span>BUFFDEVICE</span><input type="checkbox"></div>
+  <div>
+    <label for="dpiRange">DPI</label><br>
+    <input type="range" id="dpiRange" min="400" max="4000" value="2000" class="slider" oninput="dpiOutput.value = dpiRange.value">
+    <output id="dpiOutput">2000</output>
+  </div>
+</div>
+
+<script>
+  function unlock() {
+    const key = document.getElementById('keyInput').value;
+    if (key === 'tobisieuba') {
+      document.getElementById('keyInputSection').style.display = 'none';
+      document.getElementById('controlPanel').style.display = 'block';
+    } else {
+      alert('Sai key!');
+    }
+  }
+</script>
+
+</body>
+</html>
